@@ -3,10 +3,8 @@ package br.nocclarobrasil.springit.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +16,12 @@ public class Link extends Auditable{
     @Id
     @GeneratedValue
     private Long id;
+    @NotNull
     private String title;
+    @NotNull
     private String url;
     
-    @OneToOne(mappedBy = "link")
+    @OneToMany(mappedBy = "link")
     private List<Comment> comments = new ArrayList<>();
     
 }

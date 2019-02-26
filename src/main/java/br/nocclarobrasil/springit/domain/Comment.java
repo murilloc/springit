@@ -3,12 +3,15 @@ package br.nocclarobrasil.springit.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 @NoArgsConstructor
 @Data
-public class Comment extends Auditable{
+public class Comment extends Auditable {
     
     @Id
     @GeneratedValue
