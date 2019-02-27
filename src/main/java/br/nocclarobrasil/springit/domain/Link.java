@@ -2,23 +2,30 @@ package br.nocclarobrasil.springit.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@RequiredArgsConstructor
 @Data
-public class Link extends Auditable{
+public class Link extends Auditable {
     
     @Id
     @GeneratedValue
     private Long id;
-    @NotNull
+    
+    @NonNull
     private String title;
-    @NotNull
+    
+    @lombok.NonNull
     private String url;
     
     @OneToMany(mappedBy = "link")
